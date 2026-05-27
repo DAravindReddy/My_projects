@@ -130,51 +130,62 @@ void searchContact(AddressBook *addressBook)
     printf("\n");
     switch(n)
     {
-        case 1:
-                char name[50];
-                printf("Based on name: \n");
-                scanf("%49[^\n]", name);
-                getchar();
-                for (int i = 0; i < addressBook->contactCount; i++) {
-                    if (strstr(addressBook->contacts[i].name, name)) {
-                        printf("%-6d  %-20s  %-10s  %s\n", i + 1,
-                               addressBook->contacts[i].name,
-                               addressBook->contacts[i].phone,
-                               addressBook->contacts[i].email);
-                    }
-                }
-            break;
-        case 2:
-                char phone[11];
-                printf("Based on phone: ");
-                scanf("%10s", phone);
-                getchar();
-                for (int i = 0; i < addressBook->contactCount; i++) {
-                    if (strcmp(addressBook->contacts[i].phone, phone) == 0) {
-                        printf("%-6d  %-20s  %-10s  %s\n", i + 1,
-                               addressBook->contacts[i].name,
-                               addressBook->contacts[i].phone,
-                               addressBook->contacts[i].email);
-                    }
-                }
-            break;
-        case 3:
-                char email[50];
-                printf("Based on email: ");
-                scanf("%49s", email);
-                getchar();
-                for (int i = 0; i < addressBook->contactCount; i++) {
-                    if (strcmp(addressBook->contacts[i].email, email) == 0) {
-                        printf("%-6d  %-20s  %-10s  %s\n", i + 1,
-                               addressBook->contacts[i].name,
-                               addressBook->contacts[i].phone,
-                               addressBook->contacts[i].email);
-                    }
-                }
-            break;
-        default:
-            printf("Invalid input!!\n");
-            break;
+	case 1: {
+        char name[50];
+
+        printf("Based on name: \n");
+        scanf("%49[^\n]", name);
+        getchar();
+
+        for (int i = 0; i < addressBook->contactCount; i++) {
+            if (strstr(addressBook->contacts[i].name, name)) {
+                printf("%-6d  %-20s  %-10s  %s\n", i + 1,
+                       addressBook->contacts[i].name,
+                       addressBook->contacts[i].phone,
+                       addressBook->contacts[i].email);
+            }
+        }
+        break;
+    }
+
+    case 2: {
+        char phone[11];
+
+        printf("Based on phone: ");
+        scanf("%10s", phone);
+        getchar();
+
+        for (int i = 0; i < addressBook->contactCount; i++) {
+            if (strcmp(addressBook->contacts[i].phone, phone) == 0) {
+                printf("%-6d  %-20s  %-10s  %s\n", i + 1,
+                       addressBook->contacts[i].name,
+                       addressBook->contacts[i].phone,
+                       addressBook->contacts[i].email);
+            }
+        }
+        break;
+    }
+
+    case 3: {
+        char email[50];
+
+        printf("Based on email: ");
+        scanf("%49s", email);
+        getchar();
+
+        for (int i = 0; i < addressBook->contactCount; i++) {
+            if (strcmp(addressBook->contacts[i].email, email) == 0) {
+                printf("%-6d  %-20s  %-10s  %s\n", i + 1,
+                       addressBook->contacts[i].name,
+                       addressBook->contacts[i].phone,
+                       addressBook->contacts[i].email);
+            }
+        }
+        break;
+    }
+
+    default:
+        printf("Invalid input!");
     }
 }
 
